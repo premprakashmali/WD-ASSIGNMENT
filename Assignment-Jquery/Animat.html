@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha512-ju6u+4bPX50JQmgU97YOGAXmRMrD9as4LE05PdC3qycsGQmjGlfm041azyB1VfCXpkpt1i9gqXCT6XuxhBJtKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<style>
+    .one {
+        background-color: red;
+        height: 300px;
+        width: 1000px;
+        left: -1200px;
+        position: relative;
+    }
+
+    #demo{
+
+ 
+        position:absolute;
+        top: 100px;
+        right: 300px;
+    }
+
+   
+</style>
+<body>
+
+    <img class="one" src="1702972923076_nowweb.avif" alt="">
+
+    <button id="demo">></button>
+    <script>
+        $(document).ready(function(){
+             $("#demo").click(function(){
+                $(".one").animate({left : "300px"} , 700);
+                $(".one").animate({fontSize: '200px'}, "slow");
+
+             })
+        })
+    </script>
+</body>
+</html>
