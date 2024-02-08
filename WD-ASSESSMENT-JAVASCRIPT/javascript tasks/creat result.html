@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+
+        .container {
+            align-items: center;
+            margin-left: 400px;
+            margin-top: 50px;
+            /* border: 5px groove black; */
+            height: 500px;
+            width: 560px;
+            padding: 30px;
+            box-shadow: 0px 0px 10px 0px gray;
+        }
+
+        .container p {
+            margin-left: 220px;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+
+        #prcentag {
+            border: none;
+            border-bottom: 3px solid black;
+            background: none;
+            outline: none;
+
+        }
+
+        .grade input {
+            height: 30px;
+            width: 90px;
+            text-align: center;
+            background-color:rgb(255, 255, 255);
+
+        }
+
+        .grade {
+
+            margin-left: 180px;
+
+        }
+
+        .grade span {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .prcent{
+
+            display: flex;
+             margin-left: 80px;
+              margin-top: 20px;
+        }
+        .prcent  span{
+
+            font-size: 17px;
+            font-weight: 800;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <form onsubmit="return result()">
+            <div class="container">
+                <h1>Marksheet for information Technology</h1>
+                <p>Enter Marks</p>
+                <table height="300px" width="500px" style="margin-left: 100px;">
+                    <tr>
+                        <td>C launguage</td>
+                        <td><input type="text" name="onpt1" required id="one-1" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td>C++ launguage</td>
+                        <td><input type="text" name="input2" required id="one-2" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Database</td>
+                        <td><input type="text" name="input3" required id="one-3" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td>HTML</td>
+                        <td><input type="text" name="input4" required id="one-4" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td>CSS</td>
+                        <td><input type="text" name="input5" required id="one-5" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Php</td>
+                        <td><input type="text" name="input6" required id="one-6" maxlength="2"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Core java</td>
+                        <td><input type="text" name="input7" required id="one-7" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit"></td>
+                    </tr>
+
+                </table>
+
+
+                <div style="display: flex; margin-left: 70px;">
+                    <div style="display: flex;">
+                        <div>
+                            <h3>Total is :-</h3>
+                        </div>
+                        <div>
+                            <h3 id="total-1"></h3>
+                        </div>
+                        <div>
+                            <h3>/350</h3>
+                        </div>
+                    </div>
+
+                    <div class="prcent" >
+
+                        <div>
+                            <span>Prcentag is :-</span><input type="text" id="prcentag">
+                        </div>
+                        <div>
+                            <h3></h3>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="grade">
+
+                    <span>Grade:-</span><input type="text" id="grade">
+
+
+                </div>
+
+        </form>
+
+
+
+    </div>
+    <script>
+        function result() {
+
+            let a = document.getElementById("one-1")
+            let b = document.getElementById("one-2")
+            let c = document.getElementById("one-3")
+            let d = document.getElementById("one-4")
+            let e = document.getElementById("one-5")
+            let f = document.getElementById("one-6")
+            let g = document.getElementById("one-7")
+
+            // let inputval = document.getElementsByClassName("input1")
+
+
+            let Total = Number(a.value) + Number(b.value) + Number(c.value) + Number(d.value) + Number(e.value) + Number(f.value) + Number(g.value);
+            document.getElementById("total-1").innerHTML = Total;
+
+            let per = (Total / 350) * 100;
+            document.getElementById('prcentag').value = per + "%"
+
+            let val = Total 
+
+            
+                if (val>0 && val<=350) {
+
+                    alert('get your result')
+                }
+              
+                  else{
+                    alert('invalid marks')
+                    document.getElementById("prcentag").value = ""
+                    document.getElementById("total-1").innerHTML = ""
+                    document.getElementById("one-1").value = ""
+                    document.getElementById("one-2").value = ""
+                    document.getElementById("one-3").value = ""
+                    document.getElementById("one-4").value = ""
+                    document.getElementById("one-5").value = ""
+                    document.getElementById("one-6").value = ""
+                    document.getElementById("one-7").value = ""
+                    
+                  }
+ 
+            document.getElementById("prcentag").style.color = "green"
+
+            let grad = (Total / 350) * 100;
+
+            if (grad > 90 && grad <= 100) {
+                document.getElementById('grade').value = 'A+'
+            }
+
+            else if (grad > 70 && grad <= 90) {
+                document.getElementById('grade').value = 'A'
+            }
+            else if (grad > 60 && grad <= 70) {
+                document.getElementById('grade').value = 'B'
+            }
+            else if (grad > 40 && grad <= 60) {
+                document.getElementById('grade').value = 'C'
+            }
+            else if (grad <= 40) {
+                document.getElementById('grade').value = "fail"
+            }
+           
+            return false
+        }
+
+        // function fixval(){
+            
+        //         if (per>0 && per<= 350) {
+
+        //             alert('enter your marks')
+        //         }
+        //       else{
+        //         alert('enter valid marks')
+        //       }
+        // }
+    </script>
+
+</body>
+
+</html>
